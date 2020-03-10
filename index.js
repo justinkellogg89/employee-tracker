@@ -3,6 +3,7 @@ const cTable = require("console.table");
 const mysql = require("mysql");
 const connection = require("./connection")
 const runActions = require("./choices")
+const questions = require("./questions")
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -56,3 +57,9 @@ function runActions() {
         }
     })
 }
+
+function addDepartment(){
+    inquirer.prompt(questions.addDepartment);
+}
+
+

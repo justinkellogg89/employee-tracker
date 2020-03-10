@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 const mysql = require("mysql");
-const connection = require("./connection")
-const runActions = require("./choices")
 const questions = require("./questions")
 
 const connection = mysql.createConnection({

@@ -30,7 +30,6 @@ function runActions() {
         "View Departments",
         "View Roles",
         "View Employees",
-        "Update Employee Role",
         "QUIT",
       ],
     })
@@ -60,9 +59,6 @@ function runActions() {
           viewEmployees();
           break;
 
-        case "Update Employee Role":
-          updateEmployeeRole();
-          break;
         case "QUIT":
           quitActions();
           break;
@@ -71,15 +67,15 @@ function runActions() {
 }
 
 function addDepartment() {
-  inquirer.prompt(questions.addDepartment).then(function (data) {
+  inquirer.prompt(questions.addDepartment).then(function (answer) {
     connection.query(
       "INSERT INTO department SET ?",
       {
-        name: data.department,
+        name: answer.department,
       },
       function (err) {
         if (err) throw err;
-        console.log("Your department was added");
+        console.log("Your department was added.");
         runActions();
       }
     );
@@ -87,19 +83,68 @@ function addDepartment() {
 }
 
 function addRole() {
-  inquirer.prompt(questions.addRole).then(function (data) {
+  if (err) throw err;
+  inquirer.prompt(questions.addRole).then(function (res) {
     connection.query(
       "INSERT INTO roles SET ?",
       {
-        role: data.role,
-        salary: data.salary,
-        department_id: data.department_id,
+        title: res.role,
+        salary: res.salary,
+        department_id: res.dep_id,
       },
       function (err) {
         if (err) throw err;
-        console.log("Your role was added");
+        console.log("Your role was added.");
+
         runActions();
       }
     );
   });
+}
+
+function addEmployee() {
+  inquirer.prompt(questions.addEmployee).then(function (res) {
+    connection.query(
+      "INSERT INTO employee SET ?",
+      {
+        first_name: res.fname,
+        last_name: res.lname,
+        role_id: res.roleid,
+      },
+      function (err) {
+        if (err) throw err;
+        console.log("Your employee was added.");
+
+        runActions();
+      }
+    );
+  });
+}
+
+function viewDepartments() {
+  connection.query("SELECT * FROM department", function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runActions();
+  });
+}
+
+function viewRoles() {
+  connection.query("SELECT * FROM roles", function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runActions();
+  });
+}
+
+function viewEmployees() {
+  connection.query("SELECT * FROM employee", function (err, res) {
+    if (err) throw err;
+    console.table(res);
+    runActions();
+  });
+}
+
+function quitActions() {
+  process.exit();
 }

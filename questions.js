@@ -40,11 +40,5 @@ module.exports = {
         "What is the employee's role id (Number Only)? 1 (Help Desk Tech) 2 (Senior Help Desk Tech) 3 (HR Counselor) 4 (HR Manager) 5 (HR Director) 6 (Sales Rep) 7 (Sales Manager) 8 (Sales Director)",
       name: "roleid",
     },
-    {
-      type: "input",
-      message:
-        "What is the employee's manager id (Number Only, One rank above employee's position)? 2 (Senior Help Desk Tech) 4 (HR Manager) 5 (HR Director) 7 (Sales Supervisor) 8 (Sales Director)",
-      name: "managerid",
-    },
   ],
 };

@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS kibygg1pfej0wjii;
+DROP DATABASE IF EXISTS employees_db;
 
-CREATE DATABASE kibygg1pfej0wjii;
-USE kibygg1pfej0wjii;
+CREATE DATABASE employes_db;
+USE employees_db;
 
 
 CREATE TABLE department (

@@ -3,14 +3,18 @@ const mysql = require("mysql");
 const questions = require("./questions");
 require("console.table");
 
-const connection = mysql.createConnection({
-  host: "tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  // Your username
-  user: "q0buowp75ur6g1zr",
-  // Your password
-  password: "vyaa73wnwc43zyfi",
-  database: "kibygg1pfej0wjii	",
-});
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    // Your username
+    user: "root",
+    // Your password
+    password: "",
+    database: "employees_db",
+  });
+}
 
 connection.connect(function (err) {
   if (err) throw err;

@@ -3,7 +3,7 @@ use employees_db;
 INSERT INTO department (name)
 VALUES  ("Sales"),
         ("HR"),
-        ("IT")
+        ("IT");
 
 INSERT INTO roles (title, salary, department_id)
 VALUES  ("Help Desk Technician", 45000, 3),
@@ -24,5 +24,5 @@ VALUES  ("John", "Jones", 1, 2),
         ("Karen", "Johnson", 5, NULL),
         ("Drew", "Wilson", 6, 7),
         ("David", "Rodriguez", 7, 8),
-        ("Edward", "Gomez", 8, NULL)
+        ("Edward", "Gomez", 8, NULL);
         

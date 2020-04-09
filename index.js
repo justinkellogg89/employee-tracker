@@ -67,5 +67,17 @@ function runActions() {
 }
 
 function addDepartment() {
-  inquirer.prompt(questions.addDepartment);
+  inquirer.prompt(questions.addDepartment).then(function (data) {
+    connection.query(
+      "INSERT INTO department SET ?",
+      {
+        name: data.department,
+      },
+      function (err) {
+        if (err) throw err;
+        console.log("Your department was added");
+        runActions();
+      }
+    );
+  });
 }

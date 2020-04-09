@@ -31,6 +31,7 @@ function runActions() {
         "View Roles",
         "View Employees",
         "Update Employee Role",
+        "QUIT",
       ],
     })
     .then(function (answer) {
@@ -62,6 +63,9 @@ function runActions() {
         case "Update Employee Role":
           updateEmployeeRole();
           break;
+        case "QUIT":
+          quitActions();
+          break;
       }
     });
 }
@@ -76,6 +80,24 @@ function addDepartment() {
       function (err) {
         if (err) throw err;
         console.log("Your department was added");
+        runActions();
+      }
+    );
+  });
+}
+
+function addRole() {
+  inquirer.prompt(questions.addRole).then(function (data) {
+    connection.query(
+      "INSERT INTO roles SET ?",
+      {
+        role: data.role,
+        salary: data.salary,
+        department_id: data.department_id,
+      },
+      function (err) {
+        if (err) throw err;
+        console.log("Your role was added");
         runActions();
       }
     );

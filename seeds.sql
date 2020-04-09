@@ -1,4 +1,4 @@
-use employees_db;
+use kibygg1pfej0wjii;
 
 INSERT INTO department (name)
 VALUES  ("Sales"),

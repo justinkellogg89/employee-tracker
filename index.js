@@ -4,12 +4,12 @@ const questions = require("./questions");
 require("console.table");
 
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   // Your username
-  user: "root",
+  user: "q0buowp75ur6g1zr",
   // Your password
-  password: "",
-  database: "employees_db",
+  password: "vyaa73wnwc43zyfi",
+  database: "kibygg1pfej0wjii	",
 });
 
 connection.connect(function (err) {
